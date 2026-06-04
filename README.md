@@ -1,12 +1,13 @@
-# Gitcoin Avatar Builder — Standalone
+# OG Gitcoin Avatar Builder — Standalone
 
 A clean, dependency-free rebuild of the classic Gitcoin avatar builder. No login,
 no backend, no Django — just static files reusing the original SVG art.
 
-## Run it
+Source: [github.com/owocki/gitcoin_og_avatarbuilder](https://github.com/owocki/gitcoin_og_avatarbuilder)
+
+## Run it locally
 
 ```bash
-cd avatar-builder-standalone
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
@@ -14,6 +15,37 @@ python3 -m http.server 8000
 A local server is recommended (the PNG download needs same-origin asset access).
 Opening `index.html` directly via `file://` mostly works, but the **Download PNG**
 button may be blocked by the browser.
+
+## Deploy to Vercel
+
+This is a 100% static site — no build step. Vercel serves the files as-is.
+
+**Option A — CLI**
+
+```bash
+npm i -g vercel   # if you don't have it
+vercel            # preview deploy
+vercel --prod     # production deploy
+```
+
+Accept the defaults when prompted (Framework Preset: **Other**, no build command,
+output directory: project root).
+
+**Option B — Git import**
+
+1. Push this folder to a GitHub/GitLab/Bitbucket repo.
+2. In the Vercel dashboard, **Add New → Project** and import the repo.
+3. Framework Preset: **Other**. Leave Build Command empty and Output Directory blank.
+4. **Deploy.**
+
+Deployment behavior is configured in [`vercel.json`](vercel.json):
+
+- `cleanUrls` — serves `index.html` at `/`.
+- Long-lived immutable caching for everything under `/assets/`.
+- `manifest.js` is revalidated on every request so catalog changes go live immediately.
+
+`build_manifest.py` is excluded from deploys via [`.vercelignore`](.vercelignore)
+(it's a dev-time tool, not needed at runtime).
 
 ## What's here
 
@@ -23,6 +55,7 @@ button may be blocked by the browser.
 | `manifest.js` | Auto-generated catalog of every option, the layer it occupies, and its color palette. |
 | `build_manifest.py` | Regenerates `manifest.js` by scanning `assets/avatar/`. Run after adding/removing art. |
 | `assets/avatar/` | The original Gitcoin SVG assets (copied from `app/assets/v2/images/avatar/`). |
+| `vercel.json` | Vercel static-hosting config (clean URLs + caching). |
 
 ## How it works
 

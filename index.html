@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gitcoin Avatar Builder</title>
+<title>OG Gitcoin Avatar Builder</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E">
 <style>
   :root{
     --bg:#0d0a1f; --panel:#191335; --panel2:#221a47; --line:#322a5e;
@@ -95,12 +96,19 @@
     color:var(--muted);font-size:11px;font-weight:700;text-align:center;
   }
   .hint{color:var(--muted);font-size:12px;margin:0 0 12px}
+  footer{
+    border-top:1px solid var(--line);margin-top:8px;
+    padding:18px 24px;text-align:center;
+    color:var(--muted);font-size:13px;
+  }
+  footer a{color:var(--accent);text-decoration:none;font-weight:600}
+  footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">🦄</div>
-  <h1>Gitcoin Avatar Builder</h1>
+  <div class="logo">🤖</div>
+  <h1>OG Gitcoin Avatar Builder</h1>
   <span class="tag">— express yourself, no login required</span>
 </header>
 
@@ -122,6 +130,11 @@
     <div class="grid" id="grid"></div>
   </div>
 </div>
+
+<footer>
+  Open source on
+  <a href="https://github.com/owocki/gitcoin_og_avatarbuilder" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+</footer>
 
 <script src="manifest.js"></script>
 <script>
