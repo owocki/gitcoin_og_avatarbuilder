@@ -1,0 +1,1502 @@
+{
+ "bufficorn": {
+  "preview_viewbox": {
+   "background": "0 0 200 200",
+   "facial": "80 180 220 220",
+   "glasses": "80 80 220 220",
+   "hat": "20 30 300 300",
+   "shirt": "130 200 200 200",
+   "accessory": "50 180 150 200",
+   "horn": "120 80 150 150"
+  },
+  "skin_tones": [
+   "D7723B",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16"
+  ],
+  "hair_tones": [
+   "F495A8",
+   "000000",
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "ca5200"
+  ],
+  "tone_maps": [
+   "skin",
+   "blonde_hair",
+   "brown_hair",
+   "brown_hair2",
+   "dark_hair",
+   "grey_hair"
+  ],
+  "path": "assets/v2/images/avatar3d/avatar_bufficorn.svg"
+ },
+ "unisex": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "clothing": "60 80 260 300",
+   "ears": "100 70 50 50",
+   "head": "80 10 170 170",
+   "mouth": "130 90 70 70",
+   "nose": "140 80 50 50",
+   "eyes": "120 40 80 80",
+   "hair": "110 0 110 110"
+  },
+  "skin_tones": [
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16"
+  ],
+  "hair_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "tone_maps": [
+   "skin",
+   "blonde_hair",
+   "brown_hair",
+   "brown_hair2",
+   "dark_hair",
+   "grey_hair",
+   "mage_skin"
+  ],
+  "path": "assets/v2/images/avatar3d/avatar.svg"
+ },
+ "female": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "body": "60 80 220 220",
+   "ears": "100 70 50 50",
+   "head": "80 10 170 170",
+   "mouth": "130 90 70 70",
+   "nose": "130 80 30 30",
+   "lips": "120 80 50 50",
+   "eyes": "110 40 70 70",
+   "hair": "90 0 110 110",
+   "accessories": "100 50 100 100"
+  },
+  "skin_tones": [
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16"
+  ],
+  "hair_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "tone_maps": [
+   "skin",
+   "blonde_hair",
+   "brown_hair",
+   "brown_hair2",
+   "dark_hair",
+   "grey_hair"
+  ],
+  "path": "assets/v2/images/avatar3d/avatar_female.svg"
+ },
+ "bot": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "arms": "50 50 300 300",
+   "body": "60 80 220 220",
+   "ears": "100 70 50 50",
+   "head": "80 10 170 170",
+   "mouth": "130 90 70 70",
+   "nose": "130 80 30 30",
+   "lips": "120 80 50 50",
+   "eyes": "120 50 90 90",
+   "accessories": "100 50 100 100"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [
+   ""
+  ],
+  "path": "assets/v2/images/avatar3d/bot_avatar.svg"
+ },
+ "comic": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "back": "100 100 200 200",
+   "legs": "150 200 120 120",
+   "torso": "100 120 180 180",
+   "arm": "100 130 200 200",
+   "head": "20 20 250 250"
+  },
+  "skin_tones": [
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16"
+  ],
+  "hair_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000"
+  ],
+  "tone_maps": [
+   "comic",
+   "comic_hair",
+   "comic_background"
+  ],
+  "path": "assets/v2/images/avatar3d/comic.svg"
+ },
+ "flat": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16"
+  ],
+  "hair_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000"
+  ],
+  "tone_maps": [
+   "flat_skin",
+   "flat_hair",
+   "flat_background"
+  ],
+  "path": "assets/v2/images/avatar3d/flat.svg"
+ },
+ "shiny": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16"
+  ],
+  "hair_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000"
+  ],
+  "tone_maps": [
+   "shiny_skin",
+   "shiny_hair",
+   "flat_background"
+  ],
+  "path": "assets/v2/images/avatar3d/shiny.svg"
+ },
+ "people": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16"
+  ],
+  "hair_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000"
+  ],
+  "tone_maps": [
+   "people_skin",
+   "people_hair",
+   "flat_background"
+  ],
+  "path": "assets/v2/images/avatar3d/people.svg"
+ },
+ "robot": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000"
+  ],
+  "tone_maps": [
+   "flat_background"
+  ],
+  "path": "assets/v2/images/avatar3d/robot.svg"
+ },
+ "technology": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "tone_maps": [
+   "flat_background"
+  ],
+  "path": "assets/v2/images/avatar3d/tech.svg"
+ },
+ "landscape": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "tone_maps": [
+   "flat_background"
+  ],
+  "path": "assets/v2/images/avatar3d/landscape.svg"
+ },
+ "space": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "tone_maps": [
+   "flat_background"
+  ],
+  "path": "assets/v2/images/avatar3d/space.svg"
+ },
+ "spring": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "background_tones": [
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000",
+   "ca5200"
+  ],
+  "tone_maps": [
+   "flat_background"
+  ],
+  "path": "assets/v2/images/avatar3d/spring.svg"
+ },
+ "masks": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "avatar": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "background_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/masks.svg"
+ },
+ "metacartel": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "tatoos": "150 170 100 100",
+   "eyes": "100 150 120 120",
+   "eyebrows": "110 130 100 100",
+   "mouth": "130 220 100 100",
+   "hat": "20 0 250 250",
+   "accessory": "0 0 350 350"
+  },
+  "skin_tones": [
+   "ED495F",
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "000000"
+  ],
+  "hair_tones": [],
+  "tone_maps": [
+   "metacartel_skin"
+  ],
+  "path": "assets/v2/images/avatar3d/metacartel.svg"
+ },
+ "jedi": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "clothes": "0 0 350 350",
+   "facial": "100 80 100 100",
+   "hair": "0 0 150 150",
+   "eyebrows": "100 50 100 100",
+   "accessory": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/jedi.svg"
+ },
+ "protoss": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "clothing": "0 120 200 200",
+   "mouth": "100 200 200 200",
+   "accessory": "100 0 200 200",
+   "eyes": "80 50 200 200"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/protoss.svg"
+ },
+ "mage": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/mage.svg"
+ },
+ "powerrangers": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/powerrangers.svg"
+ },
+ "orc_gitcoin": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/orc_gitcoin.svg"
+ },
+ "terran": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [
+   "FFFFFF",
+   "EEEEEE",
+   "DDDDDD",
+   "CCCCCC",
+   "E1C699",
+   "CFB997",
+   "F5F5DC",
+   "B3983",
+   "AAA9AD"
+  ],
+  "tone_maps": [
+   "terran_skin"
+  ],
+  "path": "assets/v2/images/avatar3d/terran.svg"
+ },
+ "zerg": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/zerg.svg"
+ },
+ "egypt": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/egypt.svg"
+ },
+ "lego": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/lego.svg"
+ },
+ "PixelBot": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/PixelBot.svg"
+ },
+ "iamthembot": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/iamthembot.svg"
+ },
+ "visible": {
+  "preview_viewbox": {
+   "back": "0 0 350 350",
+   "eye": "120 40 70 70",
+   "accessoire": "0 0 350 350",
+   "body": "0 0 250 250"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/visible.svg"
+ },
+ "curly": {
+  "preview_viewbox": {
+   "back": "0 0 350 350",
+   "skin": "0 0 250 250",
+   "accessory": "220 200 100 100",
+   "mouth": "90 150 100 100",
+   "eyes": "140 140 50 50",
+   "clothes": "0 150 250 250",
+   "hair": "50 50 250 250"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/curly.svg"
+ },
+ "walle": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "tyres": "0 200 250 250",
+   "accessory": "0 0 200 200",
+   "cap": "100 0 150 150",
+   "goggles": "100 0 150 150"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/walle.svg"
+ },
+ "megaman": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/megaman.svg"
+ },
+ "walle2": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/walle2.svg"
+ },
+ "walle3": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/walle3.svg"
+ },
+ "chappie": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/chappie.svg"
+ },
+ "chappie2": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/chappie2.svg"
+ },
+ "megaman2": {
+  "preview_viewbox": {
+   "Background": "0 0 350 350",
+   "Arms": "50 50 250 250",
+   "Ears": "80 30 100 100",
+   "Mouth": "100 50 100 100",
+   "Eyes": "100 50 150 150",
+   "Accessory": "50 50 250 250"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/Mega2.svg"
+ },
+ "moloch": {
+  "preview_viewbox": {
+   "Background": "0 0 350 350",
+   "fog": "0 0 350 350",
+   "face": "0 0 350 350",
+   "shoulder": "0 0 350 350",
+   "horn": "0 0 350 350",
+   "mid": "0 0 350 350",
+   "leg": "0 0 350 350",
+   "hand": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/Moloch111.svg"
+ },
+ "ethbot": {
+  "preview_viewbox": {
+   "Background": "0 0 350 350",
+   "fog": "0 0 350 350",
+   "face": "0 0 350 350",
+   "shoulder": "0 0 350 350",
+   "horn": "0 0 350 350",
+   "mid": "0 0 350 350",
+   "leg": "0 0 350 350",
+   "hand": "0 0 350 350"
+  },
+  "hair_tones": [],
+  "skin_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/ETHbot.svg"
+ },
+ "starbot": {
+  "preview_viewbox": {
+   "Head": "50 20 250 250",
+   "Backdrop": "0 0 350 350",
+   "Accents": "0 100 250 250"
+  },
+  "hair_tones": [],
+  "skin_tones": [
+   "FFFFFF",
+   "EEEEEE",
+   "DDDDDD",
+   "CCCCCC",
+   "E1C699",
+   "CFB997",
+   "F5F5DC",
+   "B3983",
+   "AAA9AD"
+  ],
+  "tone_maps": [
+   "starbot_skin"
+  ],
+  "path": "assets/v2/images/avatar3d/starbot.svg"
+ },
+ "robocop": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/robocop.svg"
+ },
+ "wookie": {
+  "preview_viewbox": {
+   "Background": "0 0 350 350",
+   "Eyes": "50 100 200 200",
+   "Glasses": "50 50 200 200",
+   "Headphone": "0 0 200 200",
+   "Hat": "50 0 200 200",
+   "Nose": "50 100 150 150",
+   "Mouth": "90 140 130 130"
+  },
+  "skin_tones": [
+   "AE7343",
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16",
+   "FFFF99"
+  ],
+  "hair_tones": [],
+  "tone_maps": [
+   "wookie_skin"
+  ],
+  "path": "assets/v2/images/avatar3d/wookie.svg"
+ },
+ "wolverine": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "Mouth": "90 190 130 130",
+   "Eye": "50 100 200 200",
+   "Mask": "0 0 300 300",
+   "Clothing": "0 150 250 250"
+  },
+  "skin_tones": [
+   "ECE3C1",
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16",
+   "FFFF99"
+  ],
+  "hair_tones": [],
+  "tone_maps": [
+   "wolverine_skin"
+  ],
+  "path": "assets/v2/images/avatar3d/wolverine.svg"
+ },
+ "cartoon_jedi": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "face": "120 100 100 100",
+   "clothes": "50 150 200 200",
+   "hair": "100 50 200 201",
+   "helmet": "100 50 200 200",
+   "accessory": "0 50 200 200",
+   "legs": "120 250 100 100"
+  },
+  "skin_tones": [
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16",
+   "FFFF99"
+  ],
+  "hair_tones": [
+   "F495A8",
+   "000000",
+   "4E3521",
+   "8C3B28",
+   "B28E28",
+   "F4EA6E",
+   "F0E6FF",
+   "4D22D2",
+   "8E2ABE",
+   "3596EC",
+   "0ECF7C",
+   "ca5200"
+  ],
+  "tone_maps": [
+   "cj_skin",
+   "cj_hair"
+  ],
+  "path": "assets/v2/images/avatar3d/cartoon_jedi.svg"
+ },
+ "square_bot": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [
+   "C3996B",
+   "5F768F",
+   "ECC55F",
+   "E08156",
+   "F3A756",
+   "8EA950",
+   "62ADC9",
+   "60C19D",
+   "A07AB5",
+   "ED5599"
+  ],
+  "hair_tones": [],
+  "background_tones": [
+   "C3996B",
+   "5F768F",
+   "ECC55F",
+   "E08156",
+   "F3A756",
+   "8EA950",
+   "62ADC9",
+   "60C19D",
+   "A07AB5",
+   "ED5599"
+  ],
+  "tone_maps": [
+   "squarebot_skin",
+   "squarebot_background"
+  ],
+  "path": "assets/v2/images/avatar3d/square_bot.svg"
+ },
+ "orc": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "clothes": "0 0 350 350",
+   "facial": "100 80 100 100",
+   "hair": "0 0 250 250",
+   "eyebrows": "120 50 200 200",
+   "accessory": "0 0 350 350"
+  },
+  "skin_tones": [
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16",
+   "FFFF99"
+  ],
+  "hair_tones": [],
+  "tone_maps": [
+   "orc_skin",
+   "orc_hair"
+  ],
+  "path": "assets/v2/images/avatar3d/orc.svg"
+ },
+ "terminator": {
+  "preview_viewbox": {
+   "bg": "0 0 350 350",
+   "beard": "50 150 200 200",
+   "eyes": "90 120 150 150",
+   "accessoire": "50 0 200 200",
+   "hair": "50 0 250 250",
+   "t-shirt": "0 200 300 300"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/terminator-4.svg"
+ },
+ "barbarian": {
+  "preview_viewbox": {
+   "BACK": "0 0 350 350",
+   "ACC": "0 50 320 320",
+   "BEARD": "80 130 200 200",
+   "HAIR": "70 120 200 200",
+   "EYE": "100 100 150 150",
+   "CASK": "70 0 210 210"
+  },
+  "skin_tones": [
+   "FFCAA6",
+   "FFFFF6",
+   "FEF7EB",
+   "F8D5C2",
+   "EEE3C1",
+   "D8BF82",
+   "D2946B",
+   "AE7242",
+   "88563B",
+   "715031",
+   "593D26",
+   "392D16",
+   "FFFF99"
+  ],
+  "hair_tones": [],
+  "tone_maps": [
+   "barb_skin"
+  ],
+  "path": "assets/v2/images/avatar3d/avatar_barbarian.svg"
+ },
+ "bender": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "legs": "30 150 300 300",
+   "arms": "0 0 350 350",
+   "head": "100 0 150 150",
+   "mouth": "130 80 100 100",
+   "eyes": "130 50 100 100",
+   "body": "0 0 350 350",
+   "accessory": "100 100 150 150"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/bender.svg"
+ },
+ "qpix": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/qlands_pix.svg"
+ },
+ "unicorn": {
+  "preview_viewbox": {
+   "background": "0 0 350 350"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/qlands_unicorn.svg"
+ },
+ "bendy": {
+  "preview_viewbox": {
+   "background": "0 0 250 250"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/bendy.svg"
+ },
+ "joker": {
+  "preview_viewbox": {
+   "background": "0 0 350 350",
+   "clothes": "100 100 250 250",
+   "facial": "120 70 250 250",
+   "hair": "70 30 250 250",
+   "accessory": "10 0 250 250"
+  },
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/joker.svg"
+ },
+ "SSShiine": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/SSShiine.svg"
+ },
+ "avrilapril": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/avrilapril.svg"
+ },
+ "eknobl": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/eknobl.svg"
+ },
+ "lkh": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/lkh.svg"
+ },
+ "nanshulot": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/nanshulot.svg"
+ },
+ "wahyu243": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/wahyu243.svg"
+ },
+ "zak102": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/zak102.svg"
+ },
+ "artipedia": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/artipedia.svg"
+ },
+ "azizyano": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/azizyano.svg"
+ },
+ "hasssan04": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/hasssan04.svg"
+ },
+ "maystro4": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/maystro4.svg"
+ },
+ "riyasoganii": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/riyasoganii.svg"
+ },
+ "writeprovidence": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/writeprovidence.svg"
+ },
+ "petushka1": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/petushka1.svg"
+ },
+ "merit-tech": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/merit-tech.svg"
+ },
+ "hamzaghz": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/hamzaghz.svg"
+ },
+ "bruno-tandon": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/bruno-tandon.svg"
+ },
+ "KayZou": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/KayZou.svg"
+ },
+ "the-hack-god": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/the-hack-god.svg"
+ },
+ "old-monger": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/old-monger.svg"
+ },
+ "virtual-face": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/virtual-face.svg"
+ },
+ "art-maniac": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/art-maniac.svg"
+ },
+ "vinhbhn": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/vinhbhn.svg"
+ },
+ "masket-bask": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/masket-bask.svg"
+ },
+ "panigale120": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/panigale120.svg"
+ },
+ "greenpill_Amaxist": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_Amaxist.svg"
+ },
+ "greenpill_IamJvck": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_IamJvck.svg"
+ },
+ "greenpill_KushMd": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_KushMd.svg"
+ },
+ "greenpill_L-KH": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_L-KH.svg"
+ },
+ "greenpill_Merit-Tech": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_Merit-Tech.svg"
+ },
+ "greenpill_Nefuski": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_Nefuski.svg"
+ },
+ "greenpill_artipedia": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_artipedia.svg"
+ },
+ "greenpill_avrilapril": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_avrilapril.svg"
+ },
+ "greenpill_developer-piyush": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_developer-piyush.svg"
+ },
+ "greenpill_hamzaghz": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_hamzaghz.svg"
+ },
+ "greenpill_hasssan04": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_hasssan04.svg"
+ },
+ "greenpill_illustrator2": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_illustrator2.svg"
+ },
+ "greenpill_joshuaartman": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_joshuaartman.svg"
+ },
+ "greenpill_lukerhoads": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_lukerhoads.svg"
+ },
+ "greenpill_masket-bask": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_masket-bask.svg"
+ },
+ "greenpill_maystro4": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_maystro4.svg"
+ },
+ "greenpill_mibvase": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_mibvase.svg"
+ },
+ "greenpill_muratgozel": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_muratgozel.svg"
+ },
+ "greenpill_nerd257": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_nerd257.svg"
+ },
+ "greenpill_shockingblack": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_shockingblack.svg"
+ },
+ "greenpill_tharindusathis": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_tharindusathis.svg"
+ },
+ "greenpill_the-hack-god": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_the-hack-god.svg"
+ },
+ "greenpill_ts-lang": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_ts-lang.svg"
+ },
+ "greenpill_Virtual-Face": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_Virtual-Face.svg"
+ },
+ "greenpill_wahyu243": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_wahyu243.svg"
+ },
+ "greenpill_writeprovidence": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_writeprovidence.svg"
+ },
+ "greenpill_Code-emm": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_Code-emm.svg"
+ },
+ "greenpill_Deosaju": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_Deosaju.svg"
+ },
+ "greenpill_giorgiothegood": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_giorgiothegood.svg"
+ },
+ "greenpill_godideas": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_godideas.svg"
+ },
+ "greenpill_matimaone1": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_matimaone1.svg"
+ },
+ "greenpill_AvrilApril": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_AvrilApril.svg"
+ },
+ "greenpill_JoshuaArtman": {
+  "preview_viewbox": {},
+  "skin_tones": [],
+  "hair_tones": [],
+  "tone_maps": [],
+  "path": "assets/v2/images/avatar3d/greenpill_JoshuaArtman.svg"
+ }
+}
