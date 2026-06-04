@@ -166,11 +166,16 @@
     if (sel.options.length) return; // build once
     const lead = document.createElement('optgroup'); lead.label = 'Customizable';
     const rest = document.createElement('optgroup'); rest.label = 'Presets';
-    M.themeOrder.forEach((k, i) => {
+    const byLabel = (a, b) => M.themes[a].label.localeCompare(M.themes[b].label);
+    const customizable = M.themeOrder.slice(0, M.leadCount).sort(byLabel);
+    const presets = M.themeOrder.slice(M.leadCount).sort(byLabel);
+    const addOpt = (group, k) => {
       const o = document.createElement('option');
       o.value = k; o.textContent = M.themes[k].label;
-      (i < M.leadCount ? lead : rest).appendChild(o);
-    });
+      group.appendChild(o);
+    };
+    customizable.forEach(k => addOpt(lead, k));
+    presets.forEach(k => addOpt(rest, k));
     sel.appendChild(lead); sel.appendChild(rest);
     sel.value = state.themeKey;
     sel.onchange = () => switchTheme(sel.value);
@@ -272,16 +277,22 @@
 
   // ---- randomize -------------------------------------------------------------
   function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-  async function randomize() {
-    // also roll a new avatar style each time
-    const key = rand(M.themeOrder);
-    if (key !== state.themeKey) await switchTheme(key);
+
+  // Randomize parts & tones within the CURRENT style.
+  function randomizeThis() {
     const t = theme();
     for (const c of pickableCats()) state.selected[c.key] = rand(c.ids);
     if (t.skinTones && t.skinTones.length) state.skinTone = rand(t.skinTones);
     if (t.hairTones && t.hairTones.length) state.hairTone = rand(t.hairTones);
     if (t.backgroundTones && t.backgroundTones.length) state.backgroundTone = rand(t.backgroundTones);
     renderTones(); renderTabs(); renderGrid(); renderPreview();
+  }
+
+  // Roll a brand-new random style, then randomize its parts & tones.
+  async function randomizeAll() {
+    const key = rand(M.themeOrder);
+    if (key !== state.themeKey) await switchTheme(key);
+    randomizeThis();
   }
 
   // ---- download PNG ----------------------------------------------------------
@@ -318,7 +329,8 @@
     if (booted) return;
     booted = true;
     renderThemePicker();
-    document.getElementById('ext-random').onclick = randomize;
+    document.getElementById('ext-random-all').onclick = randomizeAll;
+    document.getElementById('ext-random-this').onclick = randomizeThis;
     document.getElementById('ext-download').onclick = download;
     await switchTheme(state.themeKey);
   }
