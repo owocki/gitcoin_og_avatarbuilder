@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gitcoin Avatar Builder</title>
+<style>
+  :root{
+    --bg:#0d0a1f; --panel:#191335; --panel2:#221a47; --line:#322a5e;
+    --text:#efeaff; --muted:#a99fd6; --accent:#25e899; --accent2:#6f3ff5;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:radial-gradient(1200px 600px at 70% -10%, #2a1d63 0%, var(--bg) 55%);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  header{
+    display:flex;align-items:center;gap:12px;
+    padding:18px 24px;border-bottom:1px solid var(--line);
+  }
+  header .logo{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+  }
+  header h1{font-size:18px;margin:0;font-weight:700;letter-spacing:.2px}
+  header .tag{color:var(--muted);font-size:13px;margin-left:2px}
+
+  .app{
+    display:grid;grid-template-columns:360px 1fr;gap:24px;
+    max-width:1180px;margin:24px auto;padding:0 24px 60px;
+  }
+  @media(max-width:860px){ .app{grid-template-columns:1fr} }
+
+  /* ---- preview ---- */
+  .stage{position:sticky;top:24px}
+  #preview{
+    position:relative;width:100%;aspect-ratio:1/1;border-radius:20px;
+    overflow:hidden;background:#25e899;box-shadow:0 20px 60px rgba(0,0,0,.45);
+  }
+  .layer{
+    position:absolute;inset:0;width:100%;height:100%;
+    background-size:contain;background-position:center;background-repeat:no-repeat;
+    pointer-events:none;
+  }
+  .actions{display:flex;gap:10px;margin-top:16px}
+  .btn{
+    flex:1;cursor:pointer;border:1px solid var(--line);background:var(--panel2);
+    color:var(--text);padding:12px 14px;border-radius:12px;font-size:14px;font-weight:600;
+    transition:.15s;display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .btn.primary{background:linear-gradient(135deg,var(--accent),#16c47e);color:#06241a;border:none}
+
+  /* ---- color rows ---- */
+  .colors{margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+  .colorrow{display:flex;align-items:center;gap:10px;margin:10px 0}
+  .colorrow:first-child{margin-top:2px}
+  .colorrow .name{width:74px;font-size:12px;color:var(--muted);flex-shrink:0}
+  .swatches{display:flex;flex-wrap:wrap;gap:6px}
+  .sw{width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:.1s}
+  .sw:hover{transform:scale(1.12)}
+  .sw.sel{border-color:#fff;box-shadow:0 0 0 2px var(--accent2)}
+
+  /* ---- editor ---- */
+  .editor{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;min-height:420px}
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .tab{
+    cursor:pointer;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;
+    background:var(--panel2);border:1px solid var(--line);color:var(--muted);
+  }
+  .tab:hover{color:var(--text)}
+  .tab.active{background:var(--accent);color:#06241a;border-color:transparent}
+  .tab .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-left:6px;vertical-align:middle}
+  .tab.active .dot{background:#06241a}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:10px}
+  .opt{
+    position:relative;aspect-ratio:1/1;border-radius:12px;cursor:pointer;
+    background:#fff;border:2px solid transparent;
+    background-size:contain;background-position:center;background-repeat:no-repeat;
+    transition:.12s;
+  }
+  .opt:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .opt.sel{border-color:var(--accent2);box-shadow:0 0 0 2px var(--accent2)}
+  .opt.sel::after{
+    content:"✓";position:absolute;right:-6px;bottom:-6px;width:20px;height:20px;border-radius:50%;
+    background:var(--accent2);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;
+  }
+  .opt.none{
+    background:var(--panel2);display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:11px;font-weight:700;text-align:center;
+  }
+  .hint{color:var(--muted);font-size:12px;margin:0 0 12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🦄</div>
+  <h1>Gitcoin Avatar Builder</h1>
+  <span class="tag">— express yourself, no login required</span>
+</header>
+
+<div class="app">
+  <!-- LEFT: preview + colors -->
+  <div class="stage">
+    <div id="preview"></div>
+    <div class="actions">
+      <button class="btn" onclick="randomize()">🎲 Randomize</button>
+      <button class="btn primary" onclick="download()">⬇ Download PNG</button>
+    </div>
+    <div class="colors" id="colors"></div>
+  </div>
+
+  <!-- RIGHT: editor -->
+  <div class="editor">
+    <div class="tabs" id="tabs"></div>
+    <p class="hint" id="hint"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</div>
+
+<script src="manifest.js"></script>
+<script>
+const M = window.AVATAR_MANIFEST;
+const ASSET = "assets/avatar/";
+const catByKey = Object.fromEntries(M.categories.map(c => [c.key, c]));
+
+// ---- state ----
+const state = {
+  colors: Object.assign({}, M.defaults),   // SkinTone / HairColor / ClothingColor / Background
+  selected: {},                            // catKey -> optionId (single-select cats)
+  accessories: [],                         // list of accessory option ids (multi-layer)
+  activeTab: M.categories[0].key,
+};
+
+// resolve an option layer entry to a concrete URL using current colors
+function layerUrl(entry){
+  let p = entry.path;
+  if (entry.palette) p = p.replace("{c}", state.colors[entry.palette]);
+  return ASSET + p;
+}
+function thumbUrl(opt){ return ASSET + opt.thumb; }
+
+function findOpt(catKey, id){
+  return catByKey[catKey].options.find(o => o.id === id);
+}
+
+// ---- compose the avatar (layerName -> url), respecting z-order ----
+function computeLayers(){
+  const map = {};
+  for (const cat of M.categories){
+    if (cat.multi) continue;
+    const id = state.selected[cat.key];
+    if (!id) continue;
+    const opt = findOpt(cat.key, id);
+    if (!opt) continue;
+    for (const e of opt.layers) map[e.layer] = layerUrl(e);
+  }
+  for (const id of state.accessories){
+    const opt = findOpt("Accessories", id);
+    if (!opt) continue;
+    for (const e of opt.layers) map[e.layer] = layerUrl(e);
+  }
+  return map;
+}
+
+function renderPreview(){
+  const map = computeLayers();
+  const prev = document.getElementById("preview");
+  prev.style.background = "#" + state.colors.Background;
+  prev.innerHTML = "";
+  M.layerOrder.forEach((layer, i) => {
+    if (!map[layer]) return;
+    const d = document.createElement("div");
+    d.className = "layer";
+    d.style.zIndex = i;
+    d.style.backgroundImage = `url("${map[layer]}")`;
+    prev.appendChild(d);
+  });
+}
+
+// ---- tabs ----
+function renderTabs(){
+  const el = document.getElementById("tabs");
+  el.innerHTML = "";
+  for (const cat of M.categories){
+    const t = document.createElement("div");
+    t.className = "tab" + (cat.key === state.activeTab ? " active" : "");
+    const chosen = cat.multi ? state.accessories.length > 0 : !!state.selected[cat.key];
+    t.innerHTML = cat.label + (chosen ? '<span class="dot"></span>' : "");
+    t.onclick = () => { state.activeTab = cat.key; renderTabs(); renderGrid(); };
+    el.appendChild(t);
+  }
+}
+
+// ---- options grid ----
+function isAccessorySelected(opt){
+  return state.accessories.includes(opt.id);
+}
+
+function renderGrid(){
+  const cat = catByKey[state.activeTab];
+  const grid = document.getElementById("grid");
+  const hint = document.getElementById("hint");
+  hint.textContent = cat.optional
+    ? "Optional — click a selected item again to remove it."
+    : "Pick one.";
+  grid.innerHTML = "";
+
+  // "None" tile for optional single-select categories
+  if (cat.optional && !cat.multi){
+    const none = document.createElement("div");
+    none.className = "opt none" + (state.selected[cat.key] ? "" : " sel");
+    none.textContent = "None";
+    none.onclick = () => { state.selected[cat.key] = null; afterChange(); };
+    grid.appendChild(none);
+  }
+
+  for (const opt of cat.options){
+    const d = document.createElement("div");
+    const sel = cat.multi ? isAccessorySelected(opt) : state.selected[cat.key] === opt.id;
+    d.className = "opt" + (sel ? " sel" : "");
+    d.style.backgroundImage = `url("${thumbUrl(opt)}")`;
+    d.onclick = () => selectOption(cat, opt);
+    grid.appendChild(d);
+  }
+}
+
+function selectOption(cat, opt){
+  if (cat.multi){
+    toggleAccessory(opt);
+  } else if (cat.optional && state.selected[cat.key] === opt.id){
+    state.selected[cat.key] = null;          // toggle off optional
+  } else {
+    state.selected[cat.key] = opt.id;
+  }
+  afterChange();
+}
+
+function toggleAccessory(opt){
+  const optLayers = opt.layers.map(l => l.layer);
+  if (state.accessories.includes(opt.id)){
+    state.accessories = state.accessories.filter(id => id !== opt.id);
+  } else {
+    // drop any already-selected accessory that shares a layer with this one
+    state.accessories = state.accessories.filter(id => {
+      const other = findOpt("Accessories", id);
+      return !other.layers.some(l => optLayers.includes(l.layer));
+    });
+    state.accessories.push(opt.id);
+  }
+}
+
+function afterChange(){ renderPreview(); renderTabs(); renderGrid(); }
+
+// ---- color pickers ----
+const COLOR_ROWS = [
+  ["SkinTone", "Skin"],
+  ["HairColor", "Hair"],
+  ["ClothingColor", "Clothing"],
+  ["Background", "Background"],
+];
+function renderColors(){
+  const wrap = document.getElementById("colors");
+  wrap.innerHTML = "";
+  for (const [key, label] of COLOR_ROWS){
+    const row = document.createElement("div");
+    row.className = "colorrow";
+    const name = document.createElement("div");
+    name.className = "name";
+    name.textContent = label;
+    const sws = document.createElement("div");
+    sws.className = "swatches";
+    for (const c of M.palettes[key]){
+      const s = document.createElement("div");
+      s.className = "sw" + (state.colors[key] === c ? " sel" : "");
+      s.style.background = "#" + c;
+      s.title = "#" + c;
+      s.onclick = () => { state.colors[key] = c; renderColors(); renderPreview(); };
+      sws.appendChild(s);
+    }
+    row.appendChild(name); row.appendChild(sws);
+    wrap.appendChild(row);
+  }
+}
+
+// ---- randomize ----
+function rand(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+function randomize(){
+  for (const key of ["SkinTone", "HairColor", "ClothingColor", "Background"])
+    state.colors[key] = rand(M.palettes[key]);
+
+  for (const cat of M.categories){
+    if (cat.multi || cat.key === "Wallpaper") continue;
+    if (cat.optional && Math.random() < 0.45){ state.selected[cat.key] = null; continue; }
+    state.selected[cat.key] = rand(cat.options).id;
+  }
+  // a couple of random accessories on distinct layers
+  state.accessories = [];
+  const pool = catByKey.Accessories.options.slice();
+  for (let i = 0; i < 2 && pool.length; i++) toggleAccessory(rand(pool));
+  if (Math.random() < 0.5) state.selected.Wallpaper = rand(catByKey.Wallpaper.options).id;
+  else state.selected.Wallpaper = null;
+
+  renderColors(); afterChange();
+}
+
+// ---- download as PNG ----
+function download(){
+  const map = computeLayers();
+  const urls = M.layerOrder.filter(l => map[l]).map(l => map[l]);
+  Promise.all(urls.map(loadImg)).then(imgs => {
+    const SIZE = 1024;
+    const cv = document.createElement("canvas");
+    cv.width = SIZE; cv.height = SIZE;
+    const ctx = cv.getContext("2d");
+    ctx.fillStyle = "#" + state.colors.Background;
+    ctx.fillRect(0, 0, SIZE, SIZE);
+    for (const img of imgs){
+      // replicate CSS "contain": all layers share aspect ratio, so they stay registered
+      const ar = img.naturalWidth / img.naturalHeight;
+      let w = SIZE, h = SIZE;
+      if (ar > 1) h = SIZE / ar; else w = SIZE * ar;
+      ctx.drawImage(img, (SIZE - w) / 2, (SIZE - h) / 2, w, h);
+    }
+    cv.toBlob(blob => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "gitcoin-avatar.png";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }, "image/png");
+  }).catch(() => alert(
+    "Couldn't render the PNG. If you opened this file directly, run a local server instead:\n\n" +
+    "  cd avatar-builder-standalone && python3 -m http.server 8000\n\n" +
+    "then visit http://localhost:8000"
+  ));
+}
+function loadImg(src){
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => res(img);
+    img.onerror = rej;
+    img.src = src;
+  });
+}
+
+// ---- boot: sensible default face ----
+function boot(){
+  state.selected.Head = "0";
+  state.selected.Eyes = "0";
+  state.selected.Nose = "0";
+  state.selected.Mouth = "0";
+  state.selected.Ears = "0";
+  state.selected.Clothing = catByKey.Clothing.options[0].id;
+  renderColors();
+  renderTabs();
+  renderGrid();
+  renderPreview();
+}
+boot();
+</script>
+</body>
+</html>
