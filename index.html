@@ -59,7 +59,10 @@
   @media(max-width:860px){ .app{grid-template-columns:1fr} }
 
   /* ---- preview ---- */
-  .stage{position:sticky;top:24px}
+  /* sticky only on the desktop two-column layout; on mobile the stage and editor
+     stack, and a sticky stage (whose containing block is the full-height .app)
+     would travel down and overlap the editor as you scroll. */
+  @media(min-width:861px){ .stage{position:sticky;top:24px} }
   #preview{
     position:relative;width:100%;aspect-ratio:1/1;border-radius:20px;
     overflow:hidden;background:#25e899;box-shadow:0 20px 60px rgba(0,0,0,.45);
