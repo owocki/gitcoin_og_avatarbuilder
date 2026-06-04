@@ -4,6 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OG Gitcoin Avatar Builder</title>
+
+<!-- Social unfurl / link preview meta tags -->
+<!-- If your production domain differs, update the URLs below. -->
+<meta name="description" content="create an avatar of your likeness.  937k avatar permutations available for free.">
+
+<!-- Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="OG Gitcoin Avatar Builder">
+<meta property="og:description" content="create an avatar of your likeness.  937k avatar permutations available for free.">
+<meta property="og:url" content="https://avatar.gitcoin.co/">
+<meta property="og:image" content="https://avatar.gitcoin.co/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="OG Gitcoin Avatar Builder">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OG Gitcoin Avatar Builder">
+<meta name="twitter:description" content="create an avatar of your likeness.  937k avatar permutations available for free.">
+<meta name="twitter:image" content="https://avatar.gitcoin.co/assets/og-image.png">
+<meta name="twitter:image:alt" content="OG Gitcoin Avatar Builder">
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E">
 <style>
   :root{
@@ -103,16 +125,39 @@
   }
   footer a{color:var(--accent);text-decoration:none;font-weight:600}
   footer a:hover{text-decoration:underline}
+
+  /* ---- mode switch (Classic / Extended) ---- */
+  .modeswitch{margin-left:auto;display:flex;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .modeswitch .ms{cursor:pointer;border:0;background:transparent;color:var(--muted);font-weight:700;font-size:13px;padding:7px 16px;border-radius:999px;transition:.15s}
+  .modeswitch .ms:hover{color:var(--text)}
+  .modeswitch .ms.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06241a}
+  @media(max-width:560px){ header .tag{display:none} }
+
+  /* ---- extended builder ---- */
+  .ext-controls{margin-bottom:14px}
+  .ext-controls label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+  .ext-controls select{width:100%;padding:11px 12px;border-radius:12px;background:var(--panel2);color:var(--text);border:1px solid var(--line);font-size:14px;font-weight:600;cursor:pointer}
+  #ext-preview{
+    position:relative;width:100%;aspect-ratio:1/1;border-radius:20px;overflow:hidden;
+    background:#221a47;box-shadow:0 20px 60px rgba(0,0,0,.45);
+    display:flex;align-items:center;justify-content:center;
+  }
+  #ext-preview-img{width:100%;height:100%;object-fit:contain}
 </style>
 </head>
 <body>
 <header>
   <div class="logo">🤖</div>
-  <h1>OG Gitcoin Avatar Builder</h1>
+  <h1>Gitcoin Avatar Builder</h1>
   <span class="tag">— express yourself, no login required</span>
+  <div class="modeswitch" id="modeswitch">
+    <button class="ms" data-mode="classic">Classic</button>
+    <button class="ms active" data-mode="extended">Extended</button>
+  </div>
 </header>
 
-<div class="app">
+<!-- ===== CLASSIC builder ===== -->
+<div class="app" id="classic-app" style="display:none">
   <!-- LEFT: preview + colors -->
   <div class="stage">
     <div id="preview"></div>
@@ -128,6 +173,30 @@
     <div class="tabs" id="tabs"></div>
     <p class="hint" id="hint"></p>
     <div class="grid" id="grid"></div>
+  </div>
+</div>
+
+<!-- ===== EXTENDED builder ===== -->
+<div class="app" id="extended-app">
+  <!-- LEFT: theme + preview + tones -->
+  <div class="stage">
+    <div class="ext-controls">
+      <label for="ext-theme">Avatar style</label>
+      <select id="ext-theme"></select>
+    </div>
+    <div id="ext-preview"><img id="ext-preview-img" alt="avatar preview"></div>
+    <div class="actions">
+      <button class="btn" id="ext-random">🎲 Randomize</button>
+      <button class="btn primary" id="ext-download">⬇ Download PNG</button>
+    </div>
+    <div class="colors" id="ext-tones"></div>
+  </div>
+
+  <!-- RIGHT: part picker -->
+  <div class="editor">
+    <div class="tabs" id="ext-tabs"></div>
+    <p class="hint" id="ext-hint">Pick a part to swap it. Re-click the selected one to revert to default.</p>
+    <div class="grid" id="ext-grid"></div>
   </div>
 </div>
 
@@ -377,6 +446,23 @@ function boot(){
   renderPreview();
 }
 boot();
+</script>
+
+<!-- Extended ("3D" / Custom) builder -->
+<script src="manifest3d.js"></script>
+<script src="extended.js"></script>
+<script>
+(function(){
+  function setMode(mode){
+    document.getElementById('classic-app').style.display  = mode === 'classic'  ? '' : 'none';
+    document.getElementById('extended-app').style.display = mode === 'extended' ? '' : 'none';
+    document.querySelectorAll('#modeswitch .ms').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+    if (mode === 'extended') window.ExtendedBuilder.boot();
+    history.replaceState(null, '', '#' + mode);
+  }
+  document.querySelectorAll('#modeswitch .ms').forEach(b => b.onclick = () => setMode(b.dataset.mode));
+  setMode(location.hash === '#classic' ? 'classic' : 'extended');  // extended is the default
+})();
 </script>
 </body>
 </html>

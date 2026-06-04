@@ -1,4 +1,7 @@
 build_manifest.py
+build_manifest_3d.py
+theme_attrs.json
+.manifest3d_referenced.txt
 *.pyc
 __pycache__/
 .DS_Store
