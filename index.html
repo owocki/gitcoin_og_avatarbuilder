@@ -139,7 +139,42 @@
   /* ---- extended builder ---- */
   .ext-controls{margin-bottom:14px}
   .ext-controls label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
-  .ext-controls select{width:100%;padding:11px 12px;border-radius:12px;background:var(--panel2);color:var(--text);border:1px solid var(--line);font-size:14px;font-weight:600;cursor:pointer}
+
+  /* ---- custom avatar-style dropdown (thumbnail previews) ---- */
+  .ext-select{position:relative}
+  .ext-select-trigger{
+    width:100%;display:flex;align-items:center;gap:10px;cursor:pointer;text-align:left;
+    padding:8px 12px;border-radius:12px;background:var(--panel2);color:var(--text);
+    border:1px solid var(--line);font-size:14px;font-weight:600;
+  }
+  .ext-select-trigger:hover{border-color:var(--accent)}
+  .ext-select-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ext-caret{color:var(--muted);font-size:12px;transition:transform .15s}
+  .ext-select.open .ext-caret{transform:rotate(180deg)}
+  .ext-thumb{
+    width:68px;height:68px;flex-shrink:0;border-radius:10px;object-fit:contain;
+    background:#221a47;border:1px solid var(--line);
+  }
+  .ext-select-menu{
+    display:none;position:absolute;z-index:50;top:calc(100% + 6px);left:0;right:0;
+    max-height:360px;overflow-y:auto;padding:6px;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    box-shadow:0 18px 50px rgba(0,0,0,.5);
+  }
+  .ext-select.open .ext-select-menu{display:block}
+  .ext-optgroup{
+    font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+    color:var(--muted);padding:10px 8px 4px;
+  }
+  .ext-option{
+    width:100%;display:flex;align-items:center;gap:10px;cursor:pointer;text-align:left;
+    padding:6px 8px;border-radius:10px;background:transparent;border:0;
+    color:var(--text);font-size:14px;font-weight:600;
+  }
+  .ext-option:hover{background:var(--panel2)}
+  .ext-option.sel{background:var(--accent);color:#06241a}
+  .ext-option.sel .ext-thumb{border-color:var(--accent)}
+  .ext-option-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   #ext-preview{
     position:relative;width:100%;aspect-ratio:1/1;border-radius:20px;overflow:hidden;
     background:#221a47;box-shadow:0 20px 60px rgba(0,0,0,.45);
@@ -154,13 +189,13 @@
   <h1>OG Avatar Builder</h1>
   <span class="tag">— express yourself</span>
   <div class="modeswitch" id="modeswitch">
-    <button class="ms" data-mode="classic">Classic</button>
-    <button class="ms active" data-mode="extended">Extended</button>
+    <button class="ms active" data-mode="classic">Classic</button>
+    <button class="ms" data-mode="extended">Extended</button>
   </div>
 </header>
 
 <!-- ===== CLASSIC builder ===== -->
-<div class="app" id="classic-app" style="display:none">
+<div class="app" id="classic-app">
   <!-- LEFT: preview + colors -->
   <div class="stage">
     <div id="preview"></div>
@@ -180,12 +215,19 @@
 </div>
 
 <!-- ===== EXTENDED builder ===== -->
-<div class="app" id="extended-app">
+<div class="app" id="extended-app" style="display:none">
   <!-- LEFT: theme + preview + tones -->
   <div class="stage">
     <div class="ext-controls">
-      <label for="ext-theme">Avatar style</label>
-      <select id="ext-theme"></select>
+      <label for="ext-theme-trigger">Avatar style</label>
+      <div class="ext-select" id="ext-theme">
+        <button type="button" class="ext-select-trigger" id="ext-theme-trigger" aria-haspopup="listbox">
+          <img class="ext-thumb" id="ext-theme-current-thumb" alt="">
+          <span class="ext-select-label" id="ext-theme-current-label">…</span>
+          <span class="ext-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="ext-select-menu" id="ext-theme-menu" role="listbox"></div>
+      </div>
     </div>
     <div id="ext-preview"><img id="ext-preview-img" alt="avatar preview"></div>
     <div class="actions">
@@ -467,7 +509,7 @@ boot();
     history.replaceState(null, '', '#' + mode);
   }
   document.querySelectorAll('#modeswitch .ms').forEach(b => b.onclick = () => setMode(b.dataset.mode));
-  setMode(location.hash === '#classic' ? 'classic' : 'extended');  // extended is the default
+  setMode(location.hash === '#extended' ? 'extended' : 'classic');  // classic is the default
 })();
 </script>
 </body>

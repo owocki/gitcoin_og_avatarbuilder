@@ -131,13 +131,17 @@
       `viewBox="${viewBox}" ${sizeAttr} preserveAspectRatio="xMidYMid meet">${parts.join('')}</svg>`;
   }
 
-  function recolor(svg, t) {
+  // themeKey/tones default to the live selection; pass them explicitly to render
+  // a different theme (used for the style-dropdown thumbnails).
+  function recolor(svg, t, themeKey, tones) {
+    themeKey = themeKey || state.themeKey;
+    tones = tones || { skin: state.skinTone, hair: state.hairTone, background: state.backgroundTone };
     for (const type of t.toneMaps) {
-      let base = state.skinTone;
-      if (type.includes('hair')) base = state.hairTone;
-      if (type.includes('background')) base = state.backgroundTone;
+      let base = tones.skin;
+      if (type.includes('hair')) base = tones.hair;
+      if (type.includes('background')) base = tones.background;
       if (!base) continue;
-      const map = getToneMap(type, base, state.themeKey);
+      const map = getToneMap(type, base, themeKey);
       for (const [from, to] of Object.entries(map)) svg = svg.split(from).join(to);
     }
     return svg;
@@ -145,6 +149,31 @@
 
   function dataUri(svg) {
     return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }
+
+  // ---- style-dropdown thumbnails ---------------------------------------------
+  // Each theme is its own (large) SVG, so thumbnails are rendered lazily — only
+  // when their dropdown row scrolls into view — and cached. A thumbnail is the
+  // theme's default avatar (first id of every category) at its default tones.
+  const thumbCache = {};
+  async function ensureThumb(key, img) {
+    if (!img) return;
+    if (thumbCache[key]) { img.src = thumbCache[key]; return; }
+    try {
+      await loadTheme(key);
+      const t = M.themes[key];
+      const ids = t.categories.map(c => c.ids[0]);
+      const tones = {
+        skin: (t.skinTones || [])[0] || '',
+        hair: (t.hairTones || [])[0] || '',
+        background: (t.backgroundTones || [])[0] || '',
+      };
+      const svg = recolor(
+        compose(svgCache[key], ids, t.viewBox || '0 0 350 350', 'width="100%" height="100%"'),
+        t, key, tones);
+      thumbCache[key] = dataUri(svg);
+      img.src = thumbCache[key];
+    } catch (e) { /* leave the placeholder background on failure */ }
   }
 
   // The full avatar = one id from every category (selected, else first), recolored.
@@ -161,25 +190,58 @@
     img.src = dataUri(fullAvatarSvg());
   }
 
-  function renderThemePicker() {
-    const sel = document.getElementById('ext-theme');
-    if (sel.options.length) return; // build once
-    const lead = document.createElement('optgroup'); lead.label = 'Customizable';
-    const rest = document.createElement('optgroup'); rest.label = 'Presets';
+  let thumbObserver = null;
+  function buildThemeMenu() {
+    const menu = document.getElementById('ext-theme-menu');
+    if (menu.dataset.built) return; // build once
+    menu.dataset.built = '1';
     const byLabel = (a, b) => M.themes[a].label.localeCompare(M.themes[b].label);
     const customizable = M.themeOrder.slice(0, M.leadCount).sort(byLabel);
     const presets = M.themeOrder.slice(M.leadCount).sort(byLabel);
-    const addOpt = (group, k) => {
-      const o = document.createElement('option');
-      o.value = k; o.textContent = M.themes[k].label;
-      group.appendChild(o);
+    // Render each thumbnail only as its row nears the viewport (root = the menu).
+    thumbObserver = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        ensureThumb(e.target.dataset.key, e.target);
+        thumbObserver.unobserve(e.target);
+      }
+    }, { root: menu, rootMargin: '150px' });
+    const addGroup = (label, keys) => {
+      const h = document.createElement('div');
+      h.className = 'ext-optgroup'; h.textContent = label;
+      menu.appendChild(h);
+      for (const k of keys) {
+        const opt = document.createElement('button');
+        opt.type = 'button'; opt.className = 'ext-option'; opt.dataset.key = k;
+        opt.setAttribute('role', 'option');
+        const img = document.createElement('img');
+        img.className = 'ext-thumb'; img.dataset.key = k; img.alt = '';
+        const span = document.createElement('span');
+        span.className = 'ext-option-label'; span.textContent = M.themes[k].label;
+        opt.appendChild(img); opt.appendChild(span);
+        opt.onclick = () => { closeMenu(); switchTheme(k); };
+        menu.appendChild(opt);
+        thumbObserver.observe(img);
+      }
     };
-    customizable.forEach(k => addOpt(lead, k));
-    presets.forEach(k => addOpt(rest, k));
-    sel.appendChild(lead); sel.appendChild(rest);
-    sel.value = state.themeKey;
-    sel.onchange = () => switchTheme(sel.value);
+    addGroup('Customizable', customizable);
+    addGroup('Presets', presets);
   }
+
+  // Reflect the current selection in the trigger + highlight the chosen option.
+  function syncTrigger() {
+    document.getElementById('ext-theme-current-label').textContent = M.themes[state.themeKey].label;
+    ensureThumb(state.themeKey, document.getElementById('ext-theme-current-thumb'));
+    document.querySelectorAll('#ext-theme-menu .ext-option').forEach(o =>
+      o.classList.toggle('sel', o.dataset.key === state.themeKey));
+  }
+
+  function openMenu() {
+    document.getElementById('ext-theme').classList.add('open');
+    const sel = document.querySelector('#ext-theme-menu .ext-option.sel');
+    if (sel) sel.scrollIntoView({ block: 'nearest' });
+  }
+  function closeMenu() { document.getElementById('ext-theme').classList.remove('open'); }
 
   function renderTones() {
     const t = theme();
@@ -269,7 +331,7 @@
     state.skinTone = (t.skinTones || [])[0] || '';
     state.hairTone = (t.hairTones || [])[0] || '';
     state.backgroundTone = (t.backgroundTones || [])[0] || '';
-    document.getElementById('ext-theme').value = key;
+    syncTrigger();
     document.getElementById('ext-preview-img').src = '';
     await loadTheme(key);
     renderTones(); renderTabs(); renderGrid(); renderPreview();
@@ -328,7 +390,15 @@
   async function boot() {
     if (booted) return;
     booted = true;
-    renderThemePicker();
+    buildThemeMenu();
+    const trigger = document.getElementById('ext-theme-trigger');
+    trigger.onclick = (e) => {
+      e.stopPropagation();
+      document.getElementById('ext-theme').classList.contains('open') ? closeMenu() : openMenu();
+    };
+    document.addEventListener('click', (e) => {
+      if (!document.getElementById('ext-theme').contains(e.target)) closeMenu();
+    });
     document.getElementById('ext-random-all').onclick = randomizeAll;
     document.getElementById('ext-random-this').onclick = randomizeThis;
     document.getElementById('ext-download').onclick = download;
